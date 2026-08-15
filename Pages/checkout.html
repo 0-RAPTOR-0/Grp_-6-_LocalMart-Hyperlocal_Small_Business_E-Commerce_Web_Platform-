@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Local Mart</title>
+  <link rel="stylesheet" href="../Css/style.css">
+</head>
+<body>
+
+<header class = "navbar">
+  <div class = "brand">
+    <a href = "../index.html" style = "color: #fff; text-decoration: none;">Local Mart</a>
+  </div>
+
+</header>
+
+<div class = "page-header">Checkout</div>
+<div class = "container" style = "max-width: 700px;">
+
+  <form action = "order-tracking.html" method = "post" novalidate>
+
+  <div class = "section-title">Delivery Address></div>\
+  <div class = "form-group">
+    <label for = "address">House no, Road no, Area</label>
+    <input type = "text" id = "address" name = "address" title = "Delivery address" placeholder = "House no, Road no, Area" required>
+
+  </div>
+
+  <div class = "form-group">
+    <label for = "city">City</label>
+    <select type = "text" id = "city" name = "city" title = "City" required>
+      <option value="">Select a city</option>
+      <option value="Dhaka">Dhaka</option>
+      <option value="Chittagong">Chittagong</option>
+      <option value="Sylhet">Sylhet</option>
+      <option value="Rajshahi">Rajshahi</option>
+
+
+    </select>
+  </div>
+
+  <div class = "section-title">Payment Method</div>
+  <fieldset>
+    <legend>Choose a payment method:</legend>
+    <div class = "form-group" style = "margin-bottom: 10px;">
+
+      <label><input type="radio" name="payment" value="bkash" checked> bKash - Mobile Banking Payment</label>
+
+    </div>
+
+    <div class = "form-group" style = "margin-bottom: 10px;">
+
+      <label><input type="radio" name="payment" value="nagad"> Nagad - Mobile Banking Payment</label>
+
+    </div>
+
+    <div class = "form-group" style = "margin-bottom: 10px;">
+
+      <label><input type="radio" name="payment" value="cod"> Cash on Delivery - Pay when delivered</label>
+    </div>
+
+  </fieldset>
+
+  <div class = "summery-box">
+    <div class = "summery-row total"><span>Order Total</span><span>৳ 795</span></div>
+
+  </div>
+
+  <button type = "submit" class = "btn btn-primary mt-20">Place Order</button>
+
+  </form>
+</div>
+
+<footer class="site-footer">Screen 8 — CHECKOUT &amp; PAYMENT</footer>
+  
+</body>
+</html>

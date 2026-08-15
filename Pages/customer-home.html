@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Local Mart</title>
+  <link rel="stylesheet" href="../Css/style.css">
+</head>
+<body>
+
+<header class = "navbar">
+  <div class = "brand">
+    <a href = "../index.html" style = "color: #fff; text-decoration: none;">Local Mart</a>
+  </div>
+
+    <nav>
+      <a href = "browse.html">Browse</a>
+      <a href = "order-history.html">Orders</a>
+      <a href = "wishlist.html">Wishlist</a>
+    </nav>
+
+    <div class = "nav right">
+      <span class = "user name">Shakil</span>
+
+    </div>
+</header>
+
+<div class = "container">
+  <form action = "browse.html" method = "get">
+
+    <div class = "search-bar" style = "max-width: 100%;">
+      <label for = "q" class = "sr-only">Search Products or Shops</label>
+      <input type = "text" id = "q" name = "q" title="Search Products or Shops" placeholder = "Search in Mirpur, Dhaka..." required>
+
+      <button type = "submit">Go</button>
+    </div>
+  </form>
+
+  <div class = "chip-row mt-20">
+    <span class = "pill-filter active">All</span>
+    <span class = "pill-filter">Grocery</span>
+    <span class = "pill-filter">Clothing</span>
+    <span class = "pill-filter">Crafts</span>
+    <span class = "pill-filter">Food</span>
+
+  </div>
+
+  <div class = "section-title">Shops Near You</div>
+  <div class = "card-grid">
+  <div class = "card">
+  <div class = "card-body">
+    <div class = "name">Karim Store</div>
+    <div class = "meta">Grocery 0.3km</div>
+    <span class = "badge badge-open">Open</span>
+
+  </div>
+  </div>
+
+  <div class = "card">
+  <div class = "card-body">
+    <div class = "name">Rina Boutique</div>
+    <div class = "meta">Clothing 0.8km</div>
+    <span class = "badge badge-open">Open</span>
+
+  </div>
+  </div>
+  </div>
+
+  <div class = "section-title">Featured Products</div>
+  <div class = "card-grid">
+  <div class = "card">
+    <div class = "thumb">Lentils</div>
+    <div class = "card-body">
+      <div class = "name">Red Lentils 1kg</div>
+      <div class = "price">৳ 95</div>
+
+    </div>
+  </div>
+  
+  <div class = "card">
+    <div class = "thumb">Saree</div>
+    <div class = "card-body">
+      <div class = "name">Cotton Saree</div>
+      <div class = "price">৳ 650</div>
+
+    </div>
+  </div>
+
+  <div class = "card">
+    <div class = "thumb">Snacks</div>
+    <div class = "card-body">
+      <div class = "name">Local Snacks</div>
+      <div class = "price">৳ 60</div>
+
+    </div>
+  </div>
+</div>
+</div>
+
+<footer class="site-footer">Screen 4 — CUSTOMER HOME</footer>
+
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In - Local Mart</title>
+  <link rel="stylesheet" href="../Css/style.css">
+</head>
+<body>
+
+<header class = "navbar">
+  <div class = "brand"><a href = "../index.html" style = "color:#fff;">LocalMart</a></div>
+
+</header>
+
+<div class = "form-box">
+  <div class = "form-title">Welcome Back</div>
+  <div class = "form-subtitle">Sign in to your LocalMart account</div>
+
+  <form action = "customer-home.html" method = "post" novalidate>
+    <div class = "form-group">
+      <label for = "email">Email Address</label>
+      <input type = "email" id = "email" name = "email" title = "Email Address" placeholder = "email@example.com" required>
+
+    </div>
+
+    <div class = "form-group">
+      <label for = "password">Password</label>
+      <input type = "password" id = "password" name = "password" title = "Password" placeholder = "Enter password" required>
+      <div style = "text-align:right; margin-top:6px;">
+        <a href = "#" style = "font-size:12px;">Forgot Password?</a>
+
+      </div>
+    </div>
+
+    <button type = "submit" class = "btn btn-primary">Sign In</button>
+
+  </form>
+
+  <div class = "alt-actions">— or sign in as —</div>
+  <div class = "role-btn-row">
+    <a href = "seller-dashboard.html">Shop Owner</a>
+    <a href = "delivery-dashboard.html">Delivery Agent</a>
+    <a href = "admin-dashboard.html">Admin</a>
+
+  </div>
+
+  <div class = "alt-actions">New to LocalMart? <a href = "register.html">Create Account</a></div>
+
+</div>
+
+<footer class="site-footer">Screen 3 — LOGIN PAGE</footer>
+  
+</body>
+</html>
