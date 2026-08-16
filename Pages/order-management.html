@@ -8,7 +8,69 @@
 </head>
 <body>
 
+<header class ="navbar">
+  <div class = "brand"><a href = "../index.html" style = "color:#fff;">Local Mart - Seller</a></div>
+  <div class = " nav right"><span class = "user-name">karim Store</span></div>
 
+</header>
+
+<div class = "layout with sidebar">
+  <aside class = "sidebar">
+    <a  href = "seller-dashboard.html">Home</a>
+    <a href = "product-form.html">Products</a>
+    <a href = "order-management.html" class = "active">Orders</a>
+    <a href = "sales-analytics.html">Analytics</a>
+
+  </aside>
+
+  <main class = "main-content">
+    <div class = "page-header" style = "margin: -26px -30px 20px;">Order Management</div>
+
+    <div class = "chip-row">
+      <span class = "pill-filter active">All (12)</span>
+      <span class = "pill-filter">Pending (5)</span>
+      <span class = "pill-filter">Dispatched (3)</span>
+      <span class = "pill-filter">Done (4)</span>
+
+    </div>
+
+    <table class = "mt-20">
+
+      <tr><th>Order ID</th><th>Customer</th><th>Items</th><th>Total</th><th>Status</th><th>Action</th></tr>
+
+      <tr>
+        <td>ORD-2841</td><td>Shakil</td><td>Rice 5kg</td><td>৳ 795</td>
+        <td><span class = "badge badge-pending">Pending</span></td>
+        <td><a href = "#">Accept</a></td>
+
+      </tr>
+
+      <tr>
+        <td>ORD-2840</td><td>Rafiq</td><td>Oil 1L x2</td><td>৳ 250</td>
+        <td><span class = "badge badge-open">Confirmed</span></td>
+        <td><a href = "#">Dispatch</a></td>
+
+      </tr>
+
+      <tr>
+        <td>ORD-2839</td><td>Mitu</td><td>Spices</td><td>৳ 400</td>
+        <td><span class = "badge badge-done">Delivered</span></td>
+        <td>Done</td>
+
+      </tr>
+
+      <tr>
+        <td>ORD-2838</td><td>Rina</td><td>Dal 2kg</td><td>৳ 300</td>
+        <td><span class = "badge badge-pending">Pending</span></td>
+        <td><a href = "#">Accept</a></td>
+
+      </tr>
+
+    </table>
+  </main>
+</div>
+
+<footer class="site-footer">Screen 14 — ORDER MANAGEMENT</footer>
   
 </body>
 </html>
