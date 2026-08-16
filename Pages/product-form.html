@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add New Product — LocalMart</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="brand"><a href="../index.html" style="color:#fff;">LocalMart — Seller</a></div>
+  <div class="nav-right"><span class="user-name">Karim Store</span></div>
+</header>
+
+<div class="layout-with-sidebar">
+  <aside class="sidebar">
+    <a href="seller-dashboard.html">Home</a>
+  <a href="product-form.html" class="active">Products</a>
+   <a href="order-management.html">Orders</a>
+    <a href="sales-analytics.html">Analytics</a>
+ </aside>
+
+  <main class="main-content">
+    <div class="page-header" style="margin:-26px -30px 20px;">Add New Product</div>
+
+    <form action="seller-dashboard.html" method="post" enctype="multipart/form-data" novalidate>
+      <div class="form-group">
+        <label for="pname">Product Name</label>
+        <input type="text" id="pname" name="pname" title="Product Name" placeholder="Enter product name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="pcategory">Category</label>
+        <select id="pcategory" name="pcategory" title="Category" required>
+          <option>Grocery</option>
+          <option>Clothing</option>
+          <option>Handicrafts</option>
+          <option>Electronics</option>
+          <option>Food</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="pprice">Price (৳)</label>
+          <input type="number" id="pprice" name="pprice" title="Price" placeholder="0.00" min="0" step="0.01" required>
+        </div>
+        <div class="form-group">
+          <label for="pstock">Stock Qty</label>
+          <input type="number" id="pstock" name="pstock" title="Stock Quantity" placeholder="0" min="0" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="pdesc">Description</label>
+        <textarea id="pdesc" name="pdesc" title="Description" placeholder="Describe your product..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="pimage">Product Image</label>
+        <input type="file" id="pimage" name="pimage" title="Product Image" accept="image/png, image/jpeg">
+      </div>
+
+      <div class="btn-row">
+        <button type="submit" class="btn btn-primary" style="width:auto; flex:1;">Save Product</button>
+        <button type="button" class="btn btn-secondary" style="flex:1;">Save Draft</button>
+      </div>
+    </form>
+  </main>
+</div>
+
+<footer class="site-footer">SCREEN 13 — ADD / EDIT PRODUCT</footer>
+
+</body>
+</html>

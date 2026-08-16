@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop Owner Registration — LocalMart</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="brand"><a href="../index.html" style="color:#fff;">LocalMart</a></div>
+</header>
+
+<div class="form-box wide">
+  <div class="form-title">Create Your Account</div>
+  <div class="form-subtitle">Join LocalMart today</div>
+
+  <div class="tab-toggle">
+    <a href="register.html">Customer</a>
+    <a href="#" class="active">Shop Owner</a>
+  </div>
+
+  <form action="#" method="post" novalidate>
+    <div class="form-group">
+      <label for="ownername">Owner Full Name</label>
+      <input type="text" id="ownername" name="ownername" title="Owner Full Name" placeholder="Enter your full name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="shopname">Shop Name</label>
+      <input type="text" id="shopname" name="shopname" title="Shop Name" placeholder="e.g. Karim Store" required>
+    </div>
+
+    <div class="form-group">
+      <label for="category">Shop Category</label>
+      <select id="category" name="category" title="Shop Category" required>
+        <option value="">Select category</option>
+        <option>Grocery</option>
+        <option>Clothing</option>
+        <option>Handicrafts</option>
+        <option>Electronics</option>
+        <option>Food</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" title="Email Address" placeholder="email@example.com" required>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" title="Phone Number" placeholder="01XXXXXXXXX" pattern="01[0-9]{9}" required>
+      </div>
+      <div class="form-group">
+        <label for="area">Area / Neighbourhood</label>
+        <input type="text" id="area" name="area" title="Area / Neighbourhood" placeholder="e.g. Mirpur, Dhaka" required>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" title="Password" placeholder="Min 8 chars" minlength="8" required>
+      </div>
+      <div class="form-group">
+        <label for="confirm_password">Confirm Password</label>
+        <input type="password" id="confirm_password" name="confirm_password" title="Confirm Password" placeholder="Re-enter" minlength="8" required>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Shop Account</button>
+  </form>
+
+  <div class="alt-actions">Already have an account? <a href="login.html">Sign In</a></div>
+</div>
+
+<footer class="site-footer">SCREEN 2B — SHOP OWNER REGISTER</footer>
+
+</body>
+</html>

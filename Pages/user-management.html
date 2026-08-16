@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Management — LocalMart</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="brand"><a href="../index.html" style="color:#fff;">LocalMart — Admin</a></div>
+  <div class="nav-right"><span class="user-name">Admin Panel</span></div>
+</header>
+
+<div class="layout-with-sidebar">
+  <aside class="sidebar">
+    <a href="admin-dashboard.html">Home</a>
+    <a href="shop-approval.html">Shops</a>
+    <a href="user-management.html" class="active">Users</a>
+    <a href="order-management.html">Orders</a>
+    <a href="sales-analytics.html">Reports</a>
+  </aside>
+
+  <main class="main-content">
+    <div class="page-header" style="margin:-26px -30px 20px;">User Management</div>
+
+    <form action="user-management.html" method="get" class="flex-between mb-10">
+      <input type="search" name="search" title="Search users" placeholder="Search users..." style="max-width:260px;">
+      <select name="role" title="Filter by role" style="width:auto;">
+        <option>All Roles</option>
+        <option>Customer</option>
+        <option>Shop Owner</option>
+        <option>Delivery</option>
+        <option>Admin</option>
+      </select>
+    </form>
+
+    <table>
+      <tr><th>Name</th><th>Role</th><th>Location</th><th>Status</th><th>Action</th></tr>
+      <tr>
+        <td>Shakil Ahmed</td><td>Customer</td><td>Mirpur</td>
+        <td><span class="badge badge-open">Active</span></td><td><a href="#">Edit</a></td>
+      </tr>
+      <tr>
+        <td>Karim Store</td><td>Shop Owner</td><td>Mirpur</td>
+        <td><span class="badge badge-open">Active</span></td><td><a href="#">Edit</a></td>
+      </tr>
+      <tr>
+        <td>Md. Hasan</td><td>Delivery</td><td>Mirpur</td>
+        <td><span class="badge badge-open">Active</span></td><td><a href="#">Edit</a></td>
+      </tr>
+      <tr>
+        <td>Noor Jahan</td><td>Shop Owner</td><td>Sylhet</td>
+        <td><span class="badge badge-pending">Pending</span></td><td><a href="#">Review</a></td>
+      </tr>
+      <tr>
+        <td>Rina Akter</td><td>Customer</td><td>Chittagong</td>
+        <td><span class="badge badge-suspended">Suspended</span></td><td><a href="#">Restore</a></td>
+      </tr>
+    </table>
+  </main>
+</div>
+
+<footer class="site-footer">SCREEN 20 — USER MANAGEMENT</footer>
+
+</body>
+</html>
