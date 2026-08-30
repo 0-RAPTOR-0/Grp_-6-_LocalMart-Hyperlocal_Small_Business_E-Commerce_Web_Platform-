@@ -1,5 +1,7 @@
 <?php 
 
+require_once __DIR__ . '/../models/db_functions.php';
+
 $errors = array();  
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -45,12 +47,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      $errors[] = "Passwords do not match.";
  }
 
+  if (empty($errors) && emailExists($conn, $email)) {
+     $errors[] = "This email is already registered. Please sign in instead.";
+ }
+
+ 
+
  if (empty($errors)) {
+
+ $saved = registerUser($conn, $fullname, $email, $password, 'customer', $phone, $area);
+
+ if($saved){
+
 
  echo "<h2>Registration Successful!</h2>";
 echo "<p>Welcome, " . htmlspecialchars($fullname) . "!</p>";
 echo "<p>Your account has been created with email: " . htmlspecialchars($email) . "</p>";
 echo '<p><a href="../pages/login.html">Click here to Sign In</a></p>';
+
+} else {
+    echo "<h2>Something went wrong.</h2>";
+    echo "<p>We could not save your account. Please try again.</p>";
+    echo '<p><a href="../pages/register.html">Go back</a></p>';
+}
 
 } else {
     

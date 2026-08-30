@@ -1,6 +1,7 @@
 <?php
 
        session_start();
+       require_once __DIR__ . '/../models/db_functions.php';
 
        $error = array();
 
@@ -36,6 +37,26 @@ if ($pprice === "") {
 
      if (empty($errors)) {
 
+        $shopId = 1;
+
+        if (isset($_SESSION["user_id"]) && isset($_SESSION["user_role"]) && $_SESSION["user_role"] === "shop_owner") {
+
+            $sql = "SELECT shop_id FROM shops WHERE owner_id = ?";
+            $stmt = mysqli_prepare($conn, $sql);
+            mysqli_stmt_bind_param($stmt, "i", $_SESSION["user_id"]);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            $shopRow = mysqli_fetch_assoc($result);
+            mysqli_stmt_close($stmt);
+        if ($shopRow) {
+             $shopId = $shopRow['shop_id'];
+        }
+    
+
+
+        $saved = addProduct($conn, $shopId, $pname, $pcategory, $pprice, $pstock, $pdesc);
+
+    if ($saved) {
         echo "<h2>Product Saved Successfully!</h2>";
         echo "<p>Product Name: " . htmlspecialchars($pname) . "</p>";
         echo "<p>Category: " . htmlspecialchars($pcategory) . "</p>";
@@ -43,7 +64,7 @@ if ($pprice === "") {
         echo "<p>Stock: " . htmlspecialchars($pstock) . " units</p>";
         echo '<p><a href="../pages/seller-dashboard.html">Back to Dashboard</a></p>';
 
-    } else {
+    }} else {
         echo "<h2>Could Not Save Product</h2>";
         echo "<ul>";
         foreach ($errors as $error) {
@@ -57,4 +78,5 @@ if ($pprice === "") {
     echo "Please fill out the product form first.";
     echo '<p><a href="../pages/product-form.html">Go to Add Product Page</a></p>';
 }
+
 ?>
