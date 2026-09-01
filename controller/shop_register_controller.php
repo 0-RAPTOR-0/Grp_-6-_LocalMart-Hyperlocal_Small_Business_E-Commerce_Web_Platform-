@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../models/db_functions.php';
+require_once __DIR__ . '/../php/db_functions.php';
 
 $errors = array();
 
@@ -75,7 +75,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<p>Shop Name: " . htmlspecialchars($shopname) . "</p>";
             echo "<p>Status: Pending Admin Approval</p>";
             echo '<p><a href="../pages/login.html">Click here to Sign In</a></p>';
+        
         } else {
+
             echo "<h2>Something went wrong.</h2>";
             echo "<p>We could not save your shop account. Please try again.</p>";
             echo '<p><a href="../pages/shop-register.html">Go back</a></p>';

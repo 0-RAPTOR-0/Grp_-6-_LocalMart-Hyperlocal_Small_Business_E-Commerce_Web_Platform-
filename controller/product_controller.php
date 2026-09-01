@@ -1,7 +1,7 @@
 <?php
 
  session_start();
- require_once __DIR__ . '/../models/db_functions.php';
+ require_once __DIR__ . '/../php/db_functions.php';
 
  $error = array();
 

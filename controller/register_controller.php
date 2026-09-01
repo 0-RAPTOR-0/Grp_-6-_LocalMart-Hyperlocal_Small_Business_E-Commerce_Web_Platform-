@@ -1,6 +1,6 @@
 <?php 
 
-require_once __DIR__ . '/../models/db_functions.php';
+require_once __DIR__ . '/../php/db_functions.php';
 
 $errors = array();  
 
@@ -60,10 +60,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
  if($saved){
 
 
- echo "<h2>Registration Successful!</h2>";
-echo "<p>Welcome, " . htmlspecialchars($fullname) . "!</p>";
-echo "<p>Your account has been created with email: " . htmlspecialchars($email) . "</p>";
-echo '<p><a href="../pages/login.html">Click here to Sign In</a></p>';
+    echo "<h2>Registration Successful!</h2>";
+    echo "<p>Welcome, " . htmlspecialchars($fullname) . "!</p>";
+    echo "<p>Your account has been created with email: " . htmlspecialchars($email) . "</p>";
+    echo '<p><a href="../pages/login.html">Click here to Sign In</a></p>';
 
 } else {
     echo "<h2>Something went wrong.</h2>";

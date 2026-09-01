@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/.../php/db-connect.php';
+require_once __DIR__ . '/db-connect.php';
 
 function registerUser($conn, $name, $email, $password, $role, $phone, $address) {
 
@@ -211,8 +211,8 @@ function addToCart($conn, $cartId, $productId, $quantity) {
     mysqli_stmt_bind_param($stmt2, "ii", $newQty, $existing['cart_item_id']);
     
     $success = mysqli_stmt_execute($stmt2);
-    m
-    ysqli_stmt_close($stmt2);
+
+    mysqli_stmt_close($stmt2);
 
     } else {
         
