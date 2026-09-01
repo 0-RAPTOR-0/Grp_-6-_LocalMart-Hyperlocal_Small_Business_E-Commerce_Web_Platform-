@@ -72,7 +72,6 @@ $products = getAllProducts($conn);
   </main>
 </div>
 
-<footer class="site-footer">SCREEN 5 — BROWSE PRODUCTS (dynamic from database)</footer>
 
 </body>
 </html>
