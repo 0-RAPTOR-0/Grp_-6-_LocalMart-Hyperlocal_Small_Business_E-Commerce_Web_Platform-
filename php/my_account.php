@@ -5,7 +5,7 @@ session_start();
 if(!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true){
 
   echo "<h2>You are not logged in.</h2>";
-  echo '<p><a href="../pages/login.html">Please Sign In first</a></p>';
+  echo '<p><a href="../Pages/login.html">Please Sign In first</a></p>';
 
   exit;
 
@@ -19,7 +19,7 @@ $email = $_SESSION["user_email"];
 <head>
 <meta charset="UTF-8">
 <title>My Account — LocalMart</title>
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../CSS/style.css">
 </head>
 <body>
 

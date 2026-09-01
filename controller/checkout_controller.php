@@ -9,7 +9,7 @@ $error = array();
 if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
     echo "<h2>Please Sign In First</h2>";
     echo "<p>You need an account to place an order.</p>";
-    echo '<p><a href="../pages/login.html">Go to Login Page</a></p>';
+    echo '<p><a href="../Pages/login.html">Go to Login Page</a></p>';
     exit;
 }
 
@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($cartItems)) {
 
     echo "<h2>Your cart is empty.</h2>";
-    echo '<p><a href="../pages/browse.php">Go shopping</a></p>';
+    echo '<p><a href="../Pages/browse.php">Go shopping</a></p>';
 
     exit;
 
@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "<h2>Order Placed Successfully!</h2>";
     echo "<p>Delivery Address: " . htmlspecialchars($address) . ", " . htmlspecialchars($city) . "</p>";
     echo "<p>Payment Method: " . htmlspecialchars($payment) . "</p>";
-    echo '<p><a href="../pages/order-tracking.html">Track your order</a></p>';
+    echo '<p><a href="../Pages/order-tracking.html">Track your order</a></p>';
 
     } else {
         echo "<h2>Order Failed</h2>";
@@ -85,11 +85,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<li>" . htmlspecialchars($error) . "</li>";
         }
         echo "</ul>";
-        echo '<p><a href="../pages/checkout.html">Go back and try again</a></p>';
+        echo '<p><a href="../Pages/checkout.html">Go back and try again</a></p>';
     }
 
 } else {
     echo "Please fill out the checkout form first.";
-    echo '<p><a href="../pages/checkout.html">Go to Checkout Page</a></p>';
+    echo '<p><a href="../Pages/checkout.html">Go to Checkout Page</a></p>';
 }
 ?>

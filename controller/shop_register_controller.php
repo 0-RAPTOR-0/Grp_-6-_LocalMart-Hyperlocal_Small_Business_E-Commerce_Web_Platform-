@@ -74,13 +74,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<h2>Shop Account Created!</h2>";
             echo "<p>Shop Name: " . htmlspecialchars($shopname) . "</p>";
             echo "<p>Status: Pending Admin Approval</p>";
-            echo '<p><a href="../pages/login.html">Click here to Sign In</a></p>';
+            echo '<p><a href="../Pages/login.html">Click here to Sign In</a></p>';
         
         } else {
 
             echo "<h2>Something went wrong.</h2>";
             echo "<p>We could not save your shop account. Please try again.</p>";
-            echo '<p><a href="../pages/shop-register.html">Go back</a></p>';
+            echo '<p><a href="../Pages/shop-register.html">Go back</a></p>';
         }
 
     } else {
@@ -90,12 +90,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<li>" . htmlspecialchars($error) . "</li>";
         }
         echo "</ul>";
-        echo '<p><a href="../pages/shop-register.html">Go back and try again</a></p>';
+        echo '<p><a href="../Pages/shop-register.html">Go back and try again</a></p>';
     }
 
 } else {
     echo "Please fill out the shop registration form first.";
-    echo '<p><a href="../pages/shop-register.html">Go to Shop Register Page</a></p>';
+    echo '<p><a href="../Pages/shop-register.html">Go to Shop Register Page</a></p>';
 }
 
 ?>

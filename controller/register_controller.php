@@ -63,12 +63,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "<h2>Registration Successful!</h2>";
     echo "<p>Welcome, " . htmlspecialchars($fullname) . "!</p>";
     echo "<p>Your account has been created with email: " . htmlspecialchars($email) . "</p>";
-    echo '<p><a href="../pages/login.html">Click here to Sign In</a></p>';
+    echo '<p><a href="../Pages/login.html">Click here to Sign In</a></p>';
 
 } else {
     echo "<h2>Something went wrong.</h2>";
     echo "<p>We could not save your account. Please try again.</p>";
-    echo '<p><a href="../pages/register.html">Go back</a></p>';
+    echo '<p><a href="../Pages/register.html">Go back</a></p>';
 }
 
 } else {
@@ -79,14 +79,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<li>" . htmlspecialchars($error) . "</li>";
     }
     echo "</ul>";
-    echo '<p><a href="../pages/register.html">Go back and try again</a></p>';
+    echo '<p><a href="../Pages/register.html">Go back and try again</a></p>';
 }
 
 }
 
 else {
     echo "Please fill out the registration form first.";
-    echo '<p><a href="../pages/register.html">Go to Registration Page</a></p>';
+    echo '<p><a href="../Pages/register.html">Go to Registration Page</a></p>';
 }
 
     ?>

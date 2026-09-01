@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     echo "<h2>Login Successful!</h2>";
     echo "<p>Welcome back, " . htmlspecialchars($user['name']) . "!</p>";
-    echo '<p><a href="../pages/customer-home.html">Go to your Dashboard</a></p>';
+    echo '<p><a href="../Pages/customer-home.html">Go to your Dashboard</a></p>';
     echo '<p><a href="logout.php">Logout</a></p>';
 
 } else {
@@ -64,13 +64,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<li>" . htmlspecialchars($error) . "</li>";
         }
         echo "</ul>";
-        echo '<p><a href="../pages/login.html">Go back and try again</a></p>';
+        echo '<p><a href="../Pages/login.html">Go back and try again</a></p>';
     }
 
 } else {
 
     echo "Please fill out the login form first.";
-    echo '<p><a href="../pages/login.html">Go to Login Page</a></p>';
+    echo '<p><a href="../Pages/login.html">Go to Login Page</a></p>';
 
 }
 

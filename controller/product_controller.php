@@ -77,7 +77,7 @@ if ($pprice === "") {
         echo "<p>Category: " . htmlspecialchars($pcategory) . "</p>";
         echo "<p>Price: ৳" . htmlspecialchars($pprice) . "</p>";
         echo "<p>Stock: " . htmlspecialchars($pstock) . " units</p>";
-        echo '<p><a href="../pages/seller-dashboard.html">Back to Dashboard</a></p>';
+        echo '<p><a href="../Pages/seller-dashboard.html">Back to Dashboard</a></p>';
 
         } else {
 
@@ -89,12 +89,12 @@ if ($pprice === "") {
         }
 
         echo "</ul>";
-        echo '<p><a href="../pages/product-form.html">Go back and try again</a></p>';
+        echo '<p><a href="../Pages/product-form.html">Go back and try again</a></p>';
     }
 
 } else {
     echo "Please fill out the product form first.";
-    echo '<p><a href="../pages/product-form.html">Go to Add Product Page</a></p>';
+    echo '<p><a href="../Pages/product-form.html">Go to Add Product Page</a></p>';
 }
 
 
