@@ -11,7 +11,7 @@ $products = getAllProducts($conn);
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Browse Products — LocalMart</title>
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../CSS/styles.css">
 </head>
 <body>
 
@@ -19,8 +19,8 @@ $products = getAllProducts($conn);
   <div class="brand"><a href="../index.html" style="color:#fff;">LocalMart</a></div>
   <nav>
     <a href="browse.php">Browse</a>
-    <a href="order-history.html">Orders</a>
-    <a href="wishlist.html">Wishlist</a>
+    <a href="../Pages/order-history.html">Orders</a>
+    <a href="../Pages/wishlist.html">Wishlist</a>
   </nav>
   <div class="nav-right"><span class="user-name">Shakil</span></div>
 </header>
@@ -55,7 +55,7 @@ $products = getAllProducts($conn);
       <?php else: ?>
         <?php foreach ($products as $product): ?>
 
-          <a href="product-detail.html?id=<?php echo $product['product_id']; ?>" style="text-decoration:none;color:inherit;">
+          <a href="../Pages/product-detail.php?id=<?php echo $product['product_id']; ?>" style="text-decoration:none;color:inherit;">
             <div class="card">
               <div class="thumb"><?php echo htmlspecialchars($product['name']); ?></div>
               <div class="card-body">

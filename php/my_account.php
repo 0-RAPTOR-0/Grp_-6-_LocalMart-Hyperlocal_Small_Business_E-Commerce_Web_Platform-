@@ -19,7 +19,7 @@ $email = $_SESSION["user_email"];
 <head>
 <meta charset="UTF-8">
 <title>My Account — LocalMart</title>
-<link rel="stylesheet" href="../CSS/style.css">
+<link rel="stylesheet" href="../Css/styles.css">
 </head>
 <body>
 
