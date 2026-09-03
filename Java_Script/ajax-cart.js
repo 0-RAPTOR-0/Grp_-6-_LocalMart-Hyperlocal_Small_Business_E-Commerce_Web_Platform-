@@ -37,7 +37,7 @@ if (addToCartBtn) {
 
         if (data.success) {
 
-          addToCartBtn.textContent = "Added ✓";
+          addToCartBtn.textContent = "Added ";
           showCartMessage(data.message, "success");
 
           const cartBadge = document.getElementById("cartCount");

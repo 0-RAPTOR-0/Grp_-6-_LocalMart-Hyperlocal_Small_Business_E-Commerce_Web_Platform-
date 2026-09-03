@@ -11,7 +11,7 @@ setcookie("remembered_email","", time() -3600);
 
 }
 
-echo "<h2>You have logged out. </h2>;
+echo "<h2>You have logged out. </h2>";
 echo '<p><a href="../Pages/login.html">Go back to Login Page</a></p>';
 
 ?>

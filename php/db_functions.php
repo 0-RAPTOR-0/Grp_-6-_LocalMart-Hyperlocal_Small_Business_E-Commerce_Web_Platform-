@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/db-connect.php';
+require_once __DIR__ . '/db_connect.php';
 
 function registerUser($conn, $name, $email, $password, $role, $phone, $address) {
 
