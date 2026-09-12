@@ -125,6 +125,9 @@ img { max-width: 100%; display: block; }
 .form-box { background: var(--white); max-width: 480px; margin: 30px auto; padding: 30px 34px; border-radius: var(--radius); box-shadow: var(--shadow); }
 .form-box.wide { max-width: 700px; }
 
+.auth-wrapper { min-height: calc(100vh - 60px); display: flex; align-items: center; justify-content: center; padding: 20px 0; }
+.auth-wrapper .form-box { margin: 0; }
+
 .form-title { text-align: center; font-size: 22px; color: var(--primary-dark); margin-bottom: 4px; }
 .form-subtitle { text-align: center; color: var(--text-muted); font-size: 13px; margin-bottom: 20px; }
 
