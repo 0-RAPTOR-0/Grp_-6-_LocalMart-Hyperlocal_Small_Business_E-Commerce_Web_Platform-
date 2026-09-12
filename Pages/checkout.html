@@ -24,6 +24,7 @@
   <div class = "form-group">
     <label for = "address">House no, Road no, Area</label>
     <input type = "text" id = "address" name = "address" title = "Delivery address" placeholder = "House no, Road no, Area" required>
+    <small class="error-text" id="addressError"></small>
 
   </div>
 
@@ -38,6 +39,7 @@
 
 
     </select>
+     <small class="error-text" id="cityError"></small>
   </div>
 
   <div class = "section-title">Payment Method</div>
@@ -59,6 +61,8 @@
 
       <label><input type="radio" name="payment" value="cod"> Cash on Delivery - Pay when delivered</label>
     </div>
+
+    <small class="error-text" id="paymentError"></small>
 
   </fieldset>
 
