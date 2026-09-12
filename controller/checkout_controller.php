@@ -4,7 +4,7 @@ session_start();
 require_once __DIR__ . '/../php/db_functions.php';
 
 
-$error = array();
+$errors = array();
 
 if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
     echo "<h2>Please Sign In First</h2>";

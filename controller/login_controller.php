@@ -46,9 +46,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
     }
 
+    $dashboardByRole = array(
+    "customer" => "../Pages/customer-home.html",
+    "shop_owner" => "../Pages/seller-dashboard.html",
+    "delivery_agent" => "../Pages/delivery-dashboard.html",
+    "admin" => "../Pages/admin-dashboard.html"
+);
+
+$dashboardUrl = isset($dashboardByRole[$user['role']])
+    ? $dashboardByRole[$user['role']]
+    : "../Pages/customer-home.html";
+
     echo "<h2>Login Successful!</h2>";
     echo "<p>Welcome back, " . htmlspecialchars($user['name']) . "!</p>";
-    echo '<p><a href="../Pages/customer-home.html">Go to your Dashboard</a></p>';
+    echo '<p><a href="' . htmlspecialchars($dashboardUrl) . '">Go to your Dashboard</a></p>';
     echo '<p><a href="logout.php">Logout</a></p>';
 
 } else {

@@ -3,7 +3,7 @@
  session_start();
  require_once __DIR__ . '/../php/db_functions.php';
 
- $error = array();
+ $errors = array();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -66,8 +66,7 @@ if ($pprice === "") {
              $shopId = $shopRow['shop_id'];
             }
         }
-     }
-
+     
 
         $saved = addProduct($conn, $shopId, $pname, $pcategory, $pprice, $pstock, $pdesc);
 
@@ -78,6 +77,13 @@ if ($pprice === "") {
         echo "<p>Price: ৳" . htmlspecialchars($pprice) . "</p>";
         echo "<p>Stock: " . htmlspecialchars($pstock) . " units</p>";
         echo '<p><a href="../Pages/seller-dashboard.html">Back to Dashboard</a></p>';
+
+        } else {
+
+        echo "<h2>Could Not Save Product</h2>";
+        echo "<p>We could not save your product. Please try again.</p>";
+        echo '<p><a href="../Pages/product-form.html">Go back</a></p>';
+        }
 
         } else {
 
