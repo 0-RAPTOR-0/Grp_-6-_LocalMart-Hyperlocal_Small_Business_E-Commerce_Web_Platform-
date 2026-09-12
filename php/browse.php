@@ -55,7 +55,7 @@ $products = getAllProducts($conn);
       <?php else: ?>
         <?php foreach ($products as $product): ?>
 
-          <a href="../Pages/product-detail.php?id=<?php echo $product['product_id']; ?>" style="text-decoration:none;color:inherit;">
+          <a href="../Pages/product-detail.html?id=<?php echo $product['product_id']; ?>" style="text-decoration:none;color:inherit;">
             <div class="card">
               <div class="thumb"><?php echo htmlspecialchars($product['name']); ?></div>
               <div class="card-body">

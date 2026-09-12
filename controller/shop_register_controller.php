@@ -16,46 +16,63 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $confirm_password = $_POST["confirm_password"];
 
     if (empty($ownername)) {
+
         $errors[] = "Owner name is required.";
+
     } elseif (strlen($ownername) < 3) {
+
         $errors[] = "Owner name must be at least 3 characters.";
     }
 
     if (empty($shopname)) {
+
         $errors[] = "Shop name is required.";
     }
 
     if (empty($category)) {
+
         $errors[] = "Please select a shop category.";
     }
 
     if (empty($email)) {
+
         $errors[] = "Email is required.";
+
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+
         $errors[] = "Please enter a valid email address.";
     }
 
     if (empty($phone)) {
+
         $errors[] = "Phone number is required.";
+
     } elseif (!preg_match("/^01[0-9]{9}$/", $phone)) {
+
         $errors[] = "Phone number must be 11 digits, e.g. 01712345678";
     }
 
     if (empty($area)) {
+
         $errors[] = "Area / Neighbourhood is required.";
     }
 
     if (empty($password)) {
+
         $errors[] = "Password is required.";
+
     } elseif (strlen($password) < 8) {
+
         $errors[] = "Password must be at least 8 characters.";
     }
 
     if ($password !== $confirm_password) {
+
         $errors[] = "Passwords do not match.";
     }
 
     if (empty($errors) && emailExists($conn, $email)) {
+        
         $errors[] = "This email is already registered.";
     }
 

@@ -18,10 +18,13 @@ $productId = isset($_POST["product_id"]) ? (int)$_POST["product_id"] : 0;
 $quantity = isset($_POST["quantity"]) ? (int)$_POST["quantity"] : 1;
 
 if ($productId <= 0 || $quantity <= 0) {
+
     echo json_encode([
         "success" => false,
         "message" => "Invalid product or quantity."
+
     ]);
+
     exit;
 }
 
@@ -30,16 +33,21 @@ $cartId = getOrCreateCart($conn, $customerId);
 $added = addToCart($conn, $cartId, $productId, $quantity);
 
 if ($added) {
+
     $cartCount = getCartItemCount($conn, $cartId);
     echo json_encode([
+
         "success" => true,
         "message" => "Added to cart!",
         "cart_count" => $cartCount
     ]);
+
 } else {
+
     echo json_encode([
         "success" => false,
         "message" => "Could not add item to cart."
+        
     ]);
 }
 ?>

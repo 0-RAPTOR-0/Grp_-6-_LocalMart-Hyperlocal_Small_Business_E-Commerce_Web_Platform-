@@ -83,6 +83,7 @@ if ($pprice === "") {
 
         echo "<h2>Could Not Save Product</h2>";
         echo "<ul>";
+        
         foreach ($errors as $error) {
             echo "<li>" . htmlspecialchars($error) . "</li>";
 

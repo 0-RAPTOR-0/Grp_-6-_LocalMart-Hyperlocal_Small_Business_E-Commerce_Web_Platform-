@@ -21,16 +21,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
          if (empty($address)) {
          $errors[] = "Delivery address is required.";
-}
 
-           if (empty($city)) {
-      $errors[] = "Please select a city.";
-  }
+        }
+
+        if (empty($city)) {
+
+        $errors[] = "Please select a city.";
+
+        }
 
    $allowedPayments = array("bkash", "nagad", "cod");
+
  if (empty($payment) || !in_array($payment, $allowedPayments)) {
+
      $errors[] = "Please choose a valid payment method.";
- }
+
+    }
 
      if (empty($errors)) {
 
@@ -69,6 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $sql = "DELETE FROM cart_items WHERE cart_id = ?";
     $stmt = mysqli_prepare($conn, $sql);
+    
     mysqli_stmt_bind_param($stmt, "i", $cartId);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
