@@ -79,12 +79,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $saved = registerUser($conn, $fullname, $email, $password, 'customer', $phone, $area);
 
     if($saved){
+    
+    $newUser = findUserByEmail($conn, $email);
 
+    $_SESSION["user_id"] = $newUser['user_id'];
+    $_SESSION["user_name"] = $newUser['name'];
+    $_SESSION["user_email"] = $newUser['email'];
+    $_SESSION["user_phone"] = $newUser['phone'];
+    $_SESSION["user_role"] = $newUser['role'];
+    $_SESSION["logged_in"] = true;
 
-    echo "<h2>Registration Successful!</h2>";
-    echo "<p>Welcome, " . htmlspecialchars($fullname) . "!</p>";
-    echo "<p>Your account has been created with email: " . htmlspecialchars($email) . "</p>";
-    echo '<p><a href="../Pages/login.html">Click here to Sign In</a></p>';
+    header("Location: ../Pages/customer-home.php");
+    
+    exit;
 
     } else {
 

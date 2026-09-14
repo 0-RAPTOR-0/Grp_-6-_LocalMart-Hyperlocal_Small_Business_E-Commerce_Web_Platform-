@@ -131,6 +131,8 @@ if (loginForm) {
 
   loginForm.addEventListener("submit", function (event) {
     
+    event.preventDefault();
+
     let isValid = true;
 
     clearError("emailError");
@@ -170,9 +172,63 @@ if (loginForm) {
 
       showMessage("Please fix the errors above.", "error");
 
+      return;
+
     }
 
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", loginForm.getAttribute("action"), true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    xhr.onreadystatechange = function () {
+
+    if (xhr.readyState === 4) {
+
+    if (xhr.status === 200) {
+
+      const data = JSON.parse(xhr.responseText);
+      showLoginPopup(data.message, data.success, data.redirect);
+
+    } else {
+      showLoginPopup("Something went wrong. Please try again.", false, null);
+    }
+  }
+};
+
+    const rememberChecked = document.getElementById("remember").checked ? "1" : "";
+    const body =
+      "email=" + encodeURIComponent(email) +
+      "&password=" + encodeURIComponent(password) +
+      "&remember=" + encodeURIComponent(rememberChecked);
+
+    xhr.send(body);
+
   });
+}
+
+function showLoginPopup(message, success, redirectUrl) {
+
+  const overlay = document.getElementById("loginModalOverlay");
+  const messageBox = document.getElementById("loginModalMessage");
+  const okBtn = document.getElementById("loginModalOkBtn");
+
+  if (!overlay) return;
+
+  messageBox.textContent = message;
+  overlay.style.display = "flex";
+
+    const newOkBtn = okBtn.cloneNode(true);
+  okBtn.parentNode.replaceChild(newOkBtn, okBtn);
+
+  newOkBtn.addEventListener("click", function () {
+    overlay.style.display = "none";
+
+    if (success && redirectUrl) {
+      window.location.href = redirectUrl;
+
+    }
+  });
+
 }
 
 const checkoutForm = document.getElementById("checkoutForm");
@@ -450,6 +506,147 @@ if (productForm) {
 
     }
 
+  });
+}
+
+const agentForm = document.getElementById("agentForm");
+
+if (agentForm) {
+  agentForm.addEventListener("submit", function (event) {
+
+    let isValid = true;
+
+    clearError("fullnameError");
+    clearError("emailError");
+    clearError("phoneError");
+    clearError("vehicleError");
+    clearError("passwordError");
+    clearError("confirmPasswordError");
+    clearMessage();
+
+    const fullname = document.getElementById("fullname").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const vehicle = document.getElementById("vehicle").value;
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirm_password").value;
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phonePattern = /^01[0-9]{9}$/;
+
+    if (fullname === "" || fullname.length < 3) {
+      showError("fullnameError", "Full name must be at least 3 characters.");
+      isValid = false;
+    }
+
+    if (email === "") {
+      showError("emailError", "Email is required.");
+      isValid = false;
+    } else if (!emailPattern.test(email)) {
+      showError("emailError", "Please enter a valid email address.");
+      isValid = false;
+    }
+
+    if (phone === "") {
+      showError("phoneError", "Phone number is required.");
+      isValid = false;
+    } else if (!phonePattern.test(phone)) {
+      showError("phoneError", "Phone must be 11 digits, e.g. 01712345678");
+      isValid = false;
+    }
+
+    if (vehicle === "") {
+      showError("vehicleError", "Please select a vehicle type.");
+      isValid = false;
+    }
+
+    if (password === "") {
+      showError("passwordError", "Password is required.");
+      isValid = false;
+    } else if (password.length < 8) {
+      showError("passwordError", "Password must be at least 8 characters.");
+      isValid = false;
+    }
+
+    if (confirmPassword === "") {
+      showError("confirmPasswordError", "Please confirm your password.");
+      isValid = false;
+    } else if (password !== confirmPassword) {
+      showError("confirmPasswordError", "Passwords do not match.");
+      isValid = false;
+    }
+
+    if (!isValid) {
+      event.preventDefault();
+      showMessage("Please fix the errors above.", "error");
+    }
+  });
+}
+
+const adminForm = document.getElementById("adminForm");
+
+if (adminForm) {
+  adminForm.addEventListener("submit", function (event) {
+
+    let isValid = true;
+
+    clearError("fullnameError");
+    clearError("emailError");
+    clearError("phoneError");
+    clearError("passwordError");
+    clearError("confirmPasswordError");
+    clearMessage();
+
+    const fullname = document.getElementById("fullname").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirm_password").value;
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phonePattern = /^01[0-9]{9}$/;
+
+    if (fullname === "" || fullname.length < 3) {
+      showError("fullnameError", "Full name must be at least 3 characters.");
+      isValid = false;
+    }
+
+    if (email === "") {
+      showError("emailError", "Email is required.");
+      isValid = false;
+    } else if (!emailPattern.test(email)) {
+      showError("emailError", "Please enter a valid email address.");
+      isValid = false;
+    }
+
+    if (phone === "") {
+      showError("phoneError", "Phone number is required.");
+      isValid = false;
+    } else if (!phonePattern.test(phone)) {
+      showError("phoneError", "Phone must be 11 digits, e.g. 01712345678");
+      isValid = false;
+    }
+
+    if (password === "") {
+      showError("passwordError", "Password is required.");
+      isValid = false;
+    } else if (password.length < 8) {
+      showError("passwordError", "Password must be at least 8 characters.");
+      isValid = false;
+    }
+
+    if (confirmPassword === "") {
+      showError("confirmPasswordError", "Please confirm your password.");
+      isValid = false;
+    } else if (password !== confirmPassword) {
+      showError("confirmPasswordError", "Passwords do not match.");
+      isValid = false;
+    }
+
+    if (!isValid) {
+      event.preventDefault();
+      showMessage("Please fix the errors above.", "error");
+    }
   });
 }
 

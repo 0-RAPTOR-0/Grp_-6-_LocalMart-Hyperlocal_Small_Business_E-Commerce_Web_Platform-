@@ -81,27 +81,23 @@ if ($pprice === "") {
         } else {
 
         echo "<h2>Could Not Save Product</h2>";
-        echo "<p>We could not save your product. Please try again.</p>";
-        echo '<p><a href="../Pages/product-form.html">Go back</a></p>';
+        echo "<ul>";
+
         }
 
-        } else {
-
-        echo "<h2>Could Not Save Product</h2>";
-        echo "<ul>";
-        
         foreach ($errors as $error) {
             echo "<li>" . htmlspecialchars($error) . "</li>";
 
         }
 
         echo "</ul>";
-        echo '<p><a href="../Pages/product-form.html">Go back and try again</a></p>';
+        echo '<p><a href="../Pages/product-form.php">Go back and try again</a></p>';
     }
 
-} else {
+    } else {
+
     echo "Please fill out the product form first.";
-    echo '<p><a href="../Pages/product-form.html">Go to Add Product Page</a></p>';
+    echo '<p><a href="../Pages/product-form.php">Go to Add Product Page</a></p>';
 }
 
 

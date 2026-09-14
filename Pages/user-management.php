@@ -1,3 +1,20 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
+    header("Location: login.html");
+    exit;
+}
+
+$loggedInName = $_SESSION["user_name"];
+$loggedInEmail = isset($_SESSION["user_email"]) ? $_SESSION["user_email"] : "";
+$loggedInPhone = isset($_SESSION["user_phone"]) ? $_SESSION["user_phone"] : "";
+$loggedInRole  = isset($_SESSION["user_role"]) ? $_SESSION["user_role"] : "";
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +27,23 @@
 
 <header class="navbar">
   <div class="brand"><a href="../index.html" style="color:#fff;">LocalMart — Admin</a></div>
-  <div class="nav-right"><span class="user-name">Admin Panel</span></div>
+  <div class="nav-right"><div class="user-menu">
+  <span class="user-name user-menu-trigger" onclick="toggleUserDropdown()"><?php echo htmlspecialchars($loggedInName); ?> &#9662;</span>
+  
+  <div class="user-dropdown" id="userDropdown">
+    
+    <p><strong>Name</strong><?php echo htmlspecialchars($loggedInName); ?></p>
+    <p><strong>Email</strong><?php echo htmlspecialchars($loggedInEmail); ?></p>
+    <p><strong>Phone</strong><?php echo htmlspecialchars($loggedInPhone); ?></p>
+    <p><strong>Role</strong><?php echo htmlspecialchars(ucwords(str_replace('_',' ',$loggedInRole))); ?></p>
+    
+    <hr>
+    
+    <a href="../php/logout.php" class="btn btn-secondary btn-sm">Logout</a>
+  
+  </div>
+</div>
+</div>
 </header>
 
 <div class="layout-with-sidebar">
@@ -62,7 +95,7 @@
   </main>
 </div>
 
-
+<script src="../Java_Script/user-menu.js"></script>
 
 </body>
 </html>

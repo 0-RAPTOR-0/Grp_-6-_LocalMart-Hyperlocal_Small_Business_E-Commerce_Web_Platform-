@@ -3,6 +3,8 @@
 session_start();
 require_once __DIR__ . '/../php/db_functions.php';
 
+header('Content-Type: application/json');
+
 $errors = array();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -37,6 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $_SESSION["user_id"] = $user['user_id'];
     $_SESSION["user_name"] = $user['name'];
     $_SESSION["user_email"] = $user['email'];
+    $_SESSION["user_phone"] = $user['phone'];
     $_SESSION["user_role"] = $user['role'];
     $_SESSION["logged_in"] = true;
 
@@ -47,42 +50,47 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $dashboardByRole = array(
-    "customer" => "../Pages/customer-home.html",
-    "shop_owner" => "../Pages/seller-dashboard.html",
-    "delivery_agent" => "../Pages/delivery-dashboard.html",
-    "admin" => "../Pages/admin-dashboard.html"
+    "customer" => "../Pages/customer-home.php",
+    "shop_owner" => "../Pages/seller-dashboard.php",
+    "delivery_agent" => "../Pages/delivery-dashboard.php",
+    "admin" => "../Pages/admin-dashboard.php"
 );
 
 $dashboardUrl = isset($dashboardByRole[$user['role']])
     ? $dashboardByRole[$user['role']]
-    : "../Pages/customer-home.html";
+    : "../Pages/customer-home.php";
 
-    echo "<h2>Login Successful!</h2>";
-    echo "<p>Welcome back, " . htmlspecialchars($user['name']) . "!</p>";
-    echo '<p><a href="' . htmlspecialchars($dashboardUrl) . '">Go to your Dashboard</a></p>';
-    echo '<p><a href="logout.php">Logout</a></p>';
+    echo json_encode(array(
 
-} else {
-   $errors[] = "Incorrect email or password.";
+    "success"  => true,
+    "message"  => "Welcome back, " . $user['name'] . "!",
+    "redirect" => $dashboardLink
 
-       }
+    ));
+
+    exit;
+
+    } else {
+
+        $errors[] = "Incorrect email or password.";
     }
+}
 
-    if (!empty($errors)) {
-        echo "<h2>Login Failed</h2>";
-        echo "<ul>";
-        foreach ($errors as $error) {
-            echo "<li>" . htmlspecialchars($error) . "</li>";
-        }
-        echo "</ul>";
-        echo '<p><a href="../Pages/login.html">Go back and try again</a></p>';
-    }
+    echo json_encode(array(
+        "success" => false,
+        "message" => implode(" ", $errors)
+    ));
+    exit;
 
-} else {
+    } else {
 
-    echo "Please fill out the login form first.";
-    echo '<p><a href="../Pages/login.html">Go to Login Page</a></p>';
+    echo json_encode(array(
 
+        "success" => false,
+        "message" => "Please fill out the login form first."
+    ));
+    
+    exit;
 }
 
 ?>

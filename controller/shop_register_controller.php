@@ -88,11 +88,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             registerShop($conn, $ownerId, $shopname, $category, $area);
 
-            echo "<h2>Shop Account Created!</h2>";
-            echo "<p>Shop Name: " . htmlspecialchars($shopname) . "</p>";
-            echo "<p>Status: Pending Admin Approval</p>";
-            echo '<p><a href="../Pages/login.html">Click here to Sign In</a></p>';
-        
+            $_SESSION["user_id"] = $newUser['user_id'];
+            $_SESSION["user_name"] = $newUser['name'];
+            $_SESSION["user_email"] = $newUser['email'];
+            $_SESSION["user_phone"] = $newUser['phone'];
+            $_SESSION["user_role"] = $newUser['role'];
+            $_SESSION["logged_in"] = true;
+
+            header("Location: ../Pages/shop-owner-home.php");
+            exit;
+            
         } else {
 
             echo "<h2>Something went wrong.</h2>";
